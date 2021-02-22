@@ -75,9 +75,17 @@ class Game extends Component {
       rollsLeft: NUM_ROLLS,
       locked: Array(NUM_DICE).fill(false),
     }));
-    this.roll();
+    this.animateRoll();
   }
-
+  displayRollInf0() {
+    const messages = [
+      "0 Rolls Left",
+      "1 Roll left",
+      "2 Rolls left",
+      "Starting Round",
+    ];
+    return messages[this.state.rollsLeft];
+  }
   render() {
     return (
       <div className="Game">
@@ -100,7 +108,7 @@ class Game extends Component {
                 )}
                 onClick={this.animateRoll}
               >
-                {this.state.rollsLeft} Rerolls Left
+                {this.displayRollInf0()}
               </button>
             </div>
           </section>
